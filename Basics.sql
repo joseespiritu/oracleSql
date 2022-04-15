@@ -1,3 +1,5 @@
+/*para consultar tablas en la base primero
+tenemos que iniciar la base de datos */
 SELECT * FROM all_tables;
 
 -- CREAR UNA TABLA
@@ -45,8 +47,53 @@ insert into empleado values(004, 'Ana', 'Avenida principal 350', '1234567891',40
  insert into articulos values (7, 'mouse','teclado blanco', 30);
  insert into articulos values (8, 'Computadora','Dell', 2000);
  
- select * from articulos;
+select * from articulos;--consulta para la tabla de articulos
 select * from articulos where nombre = 'impresora';
+select nombre, descripcion from articulos;
+select nombre, descripcion from articulos where nombre = 'mouse';
+
+
+-- OPERADORES RELACIONES
+select * from articulos where nombre = 'monitor';
+select * from articulos where nombre != 'monitor';
+select * from articulos where precio > 100; 
+select * from articulos where precio < 100;
+select * from articulos where precio >= 100;
+select * from articulos where precio <= 100;
+
+
+-- BORRADO DE DATOS EN TABLA
+ create table agenda(
+  apellido varchar2(30),
+  nombre varchar2(20),
+  domicilio varchar2(30),
+  telefono varchar2(11)
+ );
+
+ insert into agenda(apellido,nombre,domicilio,telefono) values 
+   ('Alvarez','Alberto','Colon 123','4234567');
+ insert into agenda(apellido,nombre,domicilio,telefono) values 
+   ('Juarez','Juan','Avellaneda 135','4458787');
+ insert into agenda(apellido,nombre,domicilio,telefono) values 
+   ('Lopez','Maria','Urquiza 333','4545454');
+ insert into agenda(apellido,nombre,domicilio,telefono) values 
+   ('Lopez','Jose','Urquiza 333','4545454');
+ insert into agenda(apellido,nombre,domicilio,telefono) values 
+   ('Salas','Susana','Gral. Paz 1234','4123456');
+   
+select * from agenda;
+delete from agenda where nombre = 'Juan';
+delete from agenda;
+
+
+-- ACTUALIZACION DE REGISTRO
+update articulos set nombre = 'impresora' where codigo = 2;
+update articulos set nombre = 'computadora', precio='3000' where codigo = 8;
+update articulos set precio = 1000;--cambia el registro de todos los datos
+
+
+
+
 
 
 
